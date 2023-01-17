@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+  server:
+    container_name: expense-control-api
+    entrypoint: [ "sh", "-c", "java -cp app:app/lib/* br.com.geradordedevs.expensecontrol.ExpenseControlApplication" ]
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      - SPRING_DATASOURCE_URL=jdbc:mysql://expense-control-db:3306/db_expense_control?createDatabaseIfNotExist=true
+      - DATABASE_HOST=db_expense_control
+      - DATABASE_USER=db_expense_control
+      - DATABASE_PASSWORD=123456
+      - DATABASE_NAME=db_expense_control
+      - DATABASE_PORT=3306
+
+    depends_on:
+      - db-expense-control
+
+  db-expense-control:
+    image: mysql:8.0
+    container_name: expense-control-db
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=db_expense_control
+      - MYSQL_USER=db_expense_control
+      - MYSQL_PASSWORD=123456
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data/db:/data/db
+
+
