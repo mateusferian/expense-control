@@ -1,10 +1,9 @@
 package br.com.geradordedevs.expensecontrol.controllers;
 
+import br.com.geradordedevs.expensecontrol.dtos.responses.UploadExcelResponseDtO;
 import br.com.geradordedevs.expensecontrol.dtos.responses.SpreadsheetResponseDTO;
 import br.com.geradordedevs.expensecontrol.facades.SpreadsheetFacade;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -18,9 +17,8 @@ public class SpreadsheetController {
     private SpreadsheetFacade spreadsheetFacade;
 
     @PostMapping("/uploud-spreadsheet-data")
-    public ResponseEntity<Void> uploadCustomersData(@RequestParam("file") MultipartFile file) {
-        spreadsheetFacade.saveExcelUploudToDataBase(file);
-        return new ResponseEntity <>(HttpStatus.ACCEPTED);
+    public UploadExcelResponseDtO uploadCustomersData(@RequestParam("file") MultipartFile file) {
+        return spreadsheetFacade.saveExcelUploudToDataBase(file);
     }
 
     @GetMapping
