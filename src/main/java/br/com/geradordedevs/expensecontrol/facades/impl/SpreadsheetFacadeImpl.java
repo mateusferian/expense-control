@@ -28,7 +28,6 @@ public class SpreadsheetFacadeImpl implements SpreadsheetFacade {
 
     @Override
     public UploadExcelResponseDtO saveExcelUploudToDataBase(MultipartFile file) {
-        log.info("criando novo arquivo");
         UploadExcelResponseDtO excelUploudResponseDTO = new UploadExcelResponseDtO();
 
         if (excelUploadService.isValidExcelFile(file)) {
