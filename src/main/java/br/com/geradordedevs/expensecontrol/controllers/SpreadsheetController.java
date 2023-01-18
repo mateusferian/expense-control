@@ -1,6 +1,6 @@
 package br.com.geradordedevs.expensecontrol.controllers;
 
-import br.com.geradordedevs.expensecontrol.dtos.responses.UploadExcelResponseDtO;
+import br.com.geradordedevs.expensecontrol.dtos.responses.UploadExcelResponseDTO;
 import br.com.geradordedevs.expensecontrol.dtos.responses.SpreadsheetResponseDTO;
 import br.com.geradordedevs.expensecontrol.facades.SpreadsheetFacade;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +16,8 @@ public class SpreadsheetController {
     @Autowired
     private SpreadsheetFacade spreadsheetFacade;
 
-    @PostMapping("/uploud-spreadsheet-data")
-    public UploadExcelResponseDtO uploadCustomersData(@RequestParam("file") MultipartFile file) {
+    @PostMapping("/upload-spreadsheet-data")
+    public UploadExcelResponseDTO uploadCustomersData(@RequestParam("file") MultipartFile file) {
         return spreadsheetFacade.saveExcelUploudToDataBase(file);
     }
 
