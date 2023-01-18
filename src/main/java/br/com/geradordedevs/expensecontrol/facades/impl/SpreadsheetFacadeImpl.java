@@ -1,6 +1,6 @@
 package br.com.geradordedevs.expensecontrol.facades.impl;
 
-import br.com.geradordedevs.expensecontrol.dtos.responses.UploadExcelResponseDtO;
+import br.com.geradordedevs.expensecontrol.dtos.responses.UploadExcelResponseDTO;
 import br.com.geradordedevs.expensecontrol.dtos.responses.SpreadsheetResponseDTO;
 import br.com.geradordedevs.expensecontrol.facades.SpreadsheetFacade;
 import br.com.geradordedevs.expensecontrol.mappers.SpreadsheetMapper;
@@ -27,8 +27,8 @@ public class SpreadsheetFacadeImpl implements SpreadsheetFacade {
     private SpreadsheetMapper mapper;
 
     @Override
-    public UploadExcelResponseDtO saveExcelUploudToDataBase(MultipartFile file) {
-        UploadExcelResponseDtO excelUploudResponseDTO = new UploadExcelResponseDtO();
+    public UploadExcelResponseDTO saveExcelUploudToDataBase(MultipartFile file) {
+        UploadExcelResponseDTO excelUploudResponseDTO = new UploadExcelResponseDTO();
 
         if (excelUploadService.isValidExcelFile(file)) {
             log.warn("valid worksheet");
