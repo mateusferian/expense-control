@@ -4,7 +4,7 @@ import br.com.geradordedevs.expensecontrol.dtos.responses.UploadExcelResponseDtO
 import br.com.geradordedevs.expensecontrol.dtos.responses.SpreadsheetResponseDTO;
 import br.com.geradordedevs.expensecontrol.facades.SpreadsheetFacade;
 import br.com.geradordedevs.expensecontrol.mappers.SpreadsheetMapper;
-import br.com.geradordedevs.expensecontrol.services.ExcelUploudService;
+import br.com.geradordedevs.expensecontrol.services.ExcelUploadService;
 import br.com.geradordedevs.expensecontrol.services.SpreadsheetService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class SpreadsheetFacadeImpl implements SpreadsheetFacade {
     private SpreadsheetService spreadsheetService;
 
     @Autowired
-    private ExcelUploudService excelUploudService;
+    private ExcelUploadService excelUploadService;
 
     @Autowired
     private SpreadsheetMapper mapper;
@@ -31,7 +31,7 @@ public class SpreadsheetFacadeImpl implements SpreadsheetFacade {
         log.info("criando novo arquivo");
         UploadExcelResponseDtO excelUploudResponseDTO = new UploadExcelResponseDtO();
 
-        if (excelUploudService.isValidExcelFile(file)) {
+        if (excelUploadService.isValidExcelFile(file)) {
             log.warn("valid worksheet");
             spreadsheetService.saveExcelUploudToDataBase(file);
             excelUploudResponseDTO.setSuccess(true);

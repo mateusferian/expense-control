@@ -2,7 +2,7 @@ package br.com.geradordedevs.expensecontrol.services.impl;
 
 import br.com.geradordedevs.expensecontrol.entities.SpreadsheetEntity;
 import br.com.geradordedevs.expensecontrol.repositories.SpreadsheetRepository;
-import br.com.geradordedevs.expensecontrol.services.ExcelUploudService;
+import br.com.geradordedevs.expensecontrol.services.ExcelUploadService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -19,7 +19,7 @@ import java.util.Iterator;
 import java.util.Objects;
 @Service
 @Slf4j
-public class ExcelUploudServiceImpl  implements ExcelUploudService {
+public class ExcelUploadServiceImpl implements ExcelUploadService {
 
     @Autowired
     private SpreadsheetRepository spreadsheetRepository;

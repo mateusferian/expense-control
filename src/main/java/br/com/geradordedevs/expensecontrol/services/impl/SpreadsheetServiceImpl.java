@@ -2,7 +2,7 @@ package br.com.geradordedevs.expensecontrol.services.impl;
 
 import br.com.geradordedevs.expensecontrol.entities.SpreadsheetEntity;
 import br.com.geradordedevs.expensecontrol.repositories.SpreadsheetRepository;
-import br.com.geradordedevs.expensecontrol.services.ExcelUploudService;
+import br.com.geradordedevs.expensecontrol.services.ExcelUploadService;
 import br.com.geradordedevs.expensecontrol.services.SpreadsheetService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,15 +19,15 @@ public class SpreadsheetServiceImpl implements SpreadsheetService {
     private SpreadsheetRepository spreadsheetRepository;
 
     @Autowired
-    private ExcelUploudService excelUploudService;
+    private ExcelUploadService excelUploadService;
 
     @Override
     public void saveExcelUploudToDataBase(MultipartFile file) {
         log.info("registering a new file");
-        if (excelUploudService.isValidExcelFile(file)){
+        if (excelUploadService.isValidExcelFile(file)){
             try {
 
-                excelUploudService.getCustomersDataFromExcel(file.getInputStream());
+                excelUploadService.getCustomersDataFromExcel(file.getInputStream());
             } catch (IOException e) {
                 throw new IllegalArgumentException("this file is not a valid excel file");
             }
