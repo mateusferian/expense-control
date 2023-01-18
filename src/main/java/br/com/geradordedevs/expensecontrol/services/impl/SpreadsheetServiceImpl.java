@@ -23,6 +23,7 @@ public class SpreadsheetServiceImpl implements SpreadsheetService {
 
     @Override
     public void saveExcelUploudToDataBase(MultipartFile file) {
+        log.info("registering a new file");
         if (excelUploudService.isValidExcelFile(file)){
             try {
 

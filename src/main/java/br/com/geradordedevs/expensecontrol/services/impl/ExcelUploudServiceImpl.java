@@ -26,13 +26,14 @@ public class ExcelUploudServiceImpl  implements ExcelUploudService {
 
     @Override
     public boolean isValidExcelFile(MultipartFile file){
+        log.info("doing validation");
 
         return Objects.equals(file.getContentType(),"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
     }
 
     @Override
     public  void getCustomersDataFromExcel(InputStream inputStream){
-
+        log.info("reading the spreadsheet and passing it to the bank");
         try {
             XSSFWorkbook workbook = new XSSFWorkbook(inputStream);
             XSSFSheet sheet = workbook.getSheet("Planilha1");
