@@ -2,8 +2,10 @@ package br.com.geradordedevs.expensecontrol.services.impl;
 
 import br.com.geradordedevs.expensecontrol.entities.SpreadsheetEntity;
 import br.com.geradordedevs.expensecontrol.repositories.SpreadsheetRepository;
+import br.com.geradordedevs.expensecontrol.services.EmailJavaService;
 import br.com.geradordedevs.expensecontrol.services.ExcelUploadService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.mail.EmailException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -23,6 +25,9 @@ public class ExcelUploadServiceImpl implements ExcelUploadService {
 
     @Autowired
     private SpreadsheetRepository spreadsheetRepository;
+
+    @Autowired
+    EmailJavaService emailJavaService;
 
     @Override
     public boolean isValidExcelFile(MultipartFile file){
@@ -60,10 +65,22 @@ public class ExcelUploadServiceImpl implements ExcelUploadService {
                     }
                     cellIndex++;
                 }
+                validNegativeTotal(spreadsheetEntity.getTotal());
                 spreadsheetRepository.save(spreadsheetEntity);
             }
         } catch (IOException e ) {
             e.getStackTrace();
+
+        } catch (EmailException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public  void validNegativeTotal( BigDecimal total) throws EmailException {
+        double  totalDouble = total.doubleValue();
+        if (totalDouble < 0){
+            log.info("the total of {} is negative",total);
+            emailJavaService.sendEmail(totalDouble);
         }
     }
 }
