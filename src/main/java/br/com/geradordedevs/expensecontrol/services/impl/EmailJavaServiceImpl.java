@@ -25,7 +25,7 @@ public class EmailJavaServiceImpl implements EmailJavaService {
 
         try {
             email.setFrom("carlosantoniocleiton@gmail.com");
-            email.setSubject("TestMail");
+            email.setSubject("valor anual");
             email.setMsg("o valor final foi negativo com um valor anual de R$"+ totalDouble);
             email.addTo("carlosantoniocleiton@gmail.com");
             email.send();
