@@ -4,6 +4,8 @@ import br.com.geradordedevs.expensecontrol.dtos.responses.UploadExcelResponseDTO
 import br.com.geradordedevs.expensecontrol.dtos.responses.SpreadsheetResponseDTO;
 import br.com.geradordedevs.expensecontrol.facades.SpreadsheetFacade;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -17,8 +19,8 @@ public class SpreadsheetController {
     private SpreadsheetFacade spreadsheetFacade;
 
     @PostMapping("/upload-spreadsheet-data")
-    public UploadExcelResponseDTO uploadCustomersData(@RequestParam("file") MultipartFile file) {
-        return spreadsheetFacade.saveExcelUploudToDataBase(file);
+    public ResponseEntity<UploadExcelResponseDTO> uploadCustomersData(@RequestParam("file") MultipartFile file) {
+        return  new ResponseEntity<>(spreadsheetFacade.saveExcelUploudToDataBase(file),HttpStatus.CREATED);
     }
 
     @GetMapping
