@@ -1,6 +1,8 @@
 package br.com.geradordedevs.expensecontrol.services.impl;
 
 import br.com.geradordedevs.expensecontrol.entities.SpreadsheetEntity;
+import br.com.geradordedevs.expensecontrol.exceptions.ExcelException;
+import br.com.geradordedevs.expensecontrol.exceptions.enums.ExcelEnum;
 import br.com.geradordedevs.expensecontrol.repositories.SpreadsheetRepository;
 import br.com.geradordedevs.expensecontrol.services.ExcelUploadService;
 import br.com.geradordedevs.expensecontrol.services.SpreadsheetService;
@@ -29,7 +31,7 @@ public class SpreadsheetServiceImpl implements SpreadsheetService {
 
                 excelUploadService.getCustomersDataFromExcel(file.getInputStream());
             } catch (IOException e) {
-                throw new IllegalArgumentException("this file is not a valid excel file");
+                throw new ExcelException(ExcelEnum.INVALID_EXCEL_FILE);
             }
         }
     }

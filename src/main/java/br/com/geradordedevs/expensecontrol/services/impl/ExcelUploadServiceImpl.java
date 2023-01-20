@@ -1,6 +1,10 @@
 package br.com.geradordedevs.expensecontrol.services.impl;
 
 import br.com.geradordedevs.expensecontrol.entities.SpreadsheetEntity;
+import br.com.geradordedevs.expensecontrol.exceptions.EmailSendingException;
+import br.com.geradordedevs.expensecontrol.exceptions.ExcelException;
+import br.com.geradordedevs.expensecontrol.exceptions.enums.EmailSendingEnum;
+import br.com.geradordedevs.expensecontrol.exceptions.enums.ExcelEnum;
 import br.com.geradordedevs.expensecontrol.repositories.SpreadsheetRepository;
 import br.com.geradordedevs.expensecontrol.services.EmailJavaService;
 import br.com.geradordedevs.expensecontrol.services.ExcelUploadService;
@@ -69,10 +73,10 @@ public class ExcelUploadServiceImpl implements ExcelUploadService {
                 spreadsheetRepository.save(spreadsheetEntity);
             }
         } catch (IOException e ) {
-            e.getStackTrace();
+            throw  new ExcelException(ExcelEnum.INVALID_EXCEL_FILE);
 
         } catch (EmailException e) {
-            throw new RuntimeException(e);
+            throw new EmailSendingException(EmailSendingEnum.ERROR_SEND_EMAIL);
         }
     }
 

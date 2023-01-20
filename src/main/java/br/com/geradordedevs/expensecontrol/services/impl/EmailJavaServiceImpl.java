@@ -1,5 +1,7 @@
 package br.com.geradordedevs.expensecontrol.services.impl;
 
+import br.com.geradordedevs.expensecontrol.exceptions.EmailSendingException;
+import br.com.geradordedevs.expensecontrol.exceptions.enums.EmailSendingEnum;
 import br.com.geradordedevs.expensecontrol.services.EmailJavaService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.mail.EmailException;
@@ -14,7 +16,7 @@ public class EmailJavaServiceImpl implements EmailJavaService {
 
     }
 
-    public void sendEmail(double totalDouble) throws EmailException {
+    public void sendEmail(double totalDouble) {
 
         SimpleEmail email = new SimpleEmail();
         email.setHostName("smtp.googlemail.com");
@@ -31,8 +33,8 @@ public class EmailJavaServiceImpl implements EmailJavaService {
             email.send();
             log.warn("email successfully sent");
 
-        } catch (EmailException e) {
-            e.printStackTrace();
+        } catch (EmailException e ) {
+            throw  new EmailSendingException(EmailSendingEnum.ERROR_SEND_EMAIL);
         }
     }
 }
