@@ -36,13 +36,13 @@ public class ExcelUploadServiceImpl implements ExcelUploadService {
     @Override
     public boolean isValidExcelFile(MultipartFile file){
         log.info("doing validation");
-
         return Objects.equals(file.getContentType(),"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
     }
 
     @Override
     public  void getCustomersDataFromExcel(InputStream inputStream){
         log.info("reading the spreadsheet and passing it to the bank");
+
         try {
             XSSFWorkbook workbook = new XSSFWorkbook(inputStream);
             XSSFSheet sheet = workbook.getSheet("Planilha1");
@@ -72,6 +72,7 @@ public class ExcelUploadServiceImpl implements ExcelUploadService {
                 validNegativeTotal(spreadsheetEntity.getTotal());
                 spreadsheetRepository.save(spreadsheetEntity);
             }
+
         } catch (IOException e ) {
             throw  new ExcelException(ExcelEnum.INVALID_EXCEL_FILE);
 

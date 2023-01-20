@@ -11,7 +11,6 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class SpreadsheetResponseDTO {
 
-
     private String month;
 
     private BigDecimal prohibited;

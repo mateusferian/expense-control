@@ -20,6 +20,7 @@ public class SpreadsheetMapper {
 
     @Autowired
     private final ModelMapper mapper;
+
     public SpreadsheetResponseDTO toDto(SpreadsheetEntity entity){
         log.info("converting entity{} to dto", entity);
         return  mapper.map(entity, SpreadsheetResponseDTO.class);
@@ -33,6 +34,4 @@ public class SpreadsheetMapper {
                 .map(this::toDto)
                 .collect(Collectors.toList());
     }
-
-
 }

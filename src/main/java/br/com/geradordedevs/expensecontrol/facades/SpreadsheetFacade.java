@@ -9,6 +9,5 @@ import java.util.List;
 public interface SpreadsheetFacade {
 
     UploadExcelResponseDTO saveExcelUploudToDataBase(MultipartFile file);
-
     List<SpreadsheetResponseDTO> findAll();
 }
