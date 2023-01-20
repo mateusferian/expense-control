@@ -69,7 +69,7 @@ public class ExcelUploadServiceImpl implements ExcelUploadService {
                     }
                     cellIndex++;
                 }
-                validNegativeTotal(spreadsheetEntity.getTotal());
+                validNegativeTotal(spreadsheetEntity.getTotal(),spreadsheetEntity.getMonth(),spreadsheetEntity.getProhibited(),spreadsheetEntity.getOutput());
                 spreadsheetRepository.save(spreadsheetEntity);
             }
 
@@ -81,11 +81,11 @@ public class ExcelUploadServiceImpl implements ExcelUploadService {
         }
     }
 
-    public  void validNegativeTotal( BigDecimal total) throws EmailException {
+    public  void validNegativeTotal( BigDecimal total,String month, BigDecimal prohibited , BigDecimal output) throws EmailException {
         double  totalDouble = total.doubleValue();
         if (totalDouble < 0){
             log.info("the total of {} is negative",total);
-            emailJavaService.sendEmail(totalDouble);
+            emailJavaService.sendEmail(totalDouble,month,prohibited,output);
         }
     }
 }

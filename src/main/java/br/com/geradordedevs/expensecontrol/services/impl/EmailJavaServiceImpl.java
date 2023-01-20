@@ -8,6 +8,8 @@ import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+
 @Slf4j
 @Service
 public class EmailJavaServiceImpl implements EmailJavaService {
@@ -16,7 +18,7 @@ public class EmailJavaServiceImpl implements EmailJavaService {
 
     }
 
-    public void sendEmail(double totalDouble) {
+    public void sendEmail(double totalDouble, String month, BigDecimal prohibited , BigDecimal output) {
 
         SimpleEmail email = new SimpleEmail();
         email.setHostName("smtp.googlemail.com");
