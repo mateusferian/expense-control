@@ -57,7 +57,7 @@ public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler 
 
     @ResponseBody
     @ExceptionHandler(EmailSendingException.class)
-    ResponseEntity<ErrorResponse> handlerExcelException(EmailSendingException ex){
+    ResponseEntity<ErrorResponse> handlerEmailException(EmailSendingException ex){
         return  ResponseEntity.status(ex.getError().getStatusCode())
                 .body((new ErrorResponse(
                         Instant.now().toEpochMilli(),
