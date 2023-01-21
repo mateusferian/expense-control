@@ -27,4 +27,11 @@ public class SpreadsheetEntity {
     private  BigDecimal output;
 
     private  BigDecimal total;
+
+    public SpreadsheetEntity(String month, BigDecimal prohibited, BigDecimal output, BigDecimal total) {
+        this.month = month;
+        this.prohibited = prohibited;
+        this.output = output;
+        this.total = total;
+    }
 }
