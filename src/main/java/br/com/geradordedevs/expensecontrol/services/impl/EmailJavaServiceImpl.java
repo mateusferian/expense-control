@@ -42,6 +42,7 @@ public class EmailJavaServiceImpl implements EmailJavaService {
         email.setDebug(true);
         email.setAuthentication(userName, password);
         email.setSSLOnConnect(true);
+        email.setSSLCheckServerIdentity(true);
 
         try {
             double total = totalDouble*-1;
