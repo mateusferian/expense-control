@@ -20,12 +20,12 @@ public class SpreadsheetController {
     private SpreadsheetFacade spreadsheetFacade;
 
     @PostMapping("/upload-spreadsheet-data")
-    public ResponseEntity<UploadExcelResponseDTO> uploadCustomersData(@RequestParam("file") MultipartFile file) throws IOException {
-        return  new ResponseEntity<>(spreadsheetFacade.saveExcelUploudToDataBase(file),HttpStatus.CREATED);
+    public ResponseEntity<UploadExcelResponseDTO> saveExcelUploadToDataBase(@RequestParam("file") MultipartFile file) throws IOException{
+        return new ResponseEntity<>(spreadsheetFacade.saveExcelUploadToDataBase(file),HttpStatus.CREATED);
     }
 
     @GetMapping
     public List<SpreadsheetResponseDTO> findAll(){
-        return  spreadsheetFacade.findAll();
+        return spreadsheetFacade.findAll();
     }
 }
