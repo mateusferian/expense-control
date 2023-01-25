@@ -15,5 +15,5 @@ public class EmailSendingException extends ExpenseControlException {
         this.error =  error;
     }
 
-    private  final EmailSendingEnum error;
+    private final EmailSendingEnum error;
 }

@@ -11,7 +11,7 @@ public enum EmailSendingEnum {
 
     ERROR_SEND_EMAIL ("ERROR_SEND_EMAIL","erro ao enviar email",500);
 
-    private  String code;
+    private String code;
     private String message;
-    private  Integer statusCode;
+    private Integer statusCode;
 }

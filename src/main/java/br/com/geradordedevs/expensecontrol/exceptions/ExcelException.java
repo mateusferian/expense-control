@@ -15,5 +15,5 @@ public class ExcelException extends ExpenseControlException {
         this.error =  error;
     }
 
-    private  final ExcelEnum error;
+    private final ExcelEnum error;
 }

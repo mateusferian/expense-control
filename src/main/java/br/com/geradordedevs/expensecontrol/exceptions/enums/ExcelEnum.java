@@ -11,7 +11,7 @@ public enum ExcelEnum {
 
     INVALID_EXCEL_FILE("INVALID_EXCEL_FILE","este arquivo é um arquivo excel invalido",401);
 
-    private  String code;
+    private String code;
     private String message;
-    private  Integer statusCode;
+    private Integer statusCode;
 }
