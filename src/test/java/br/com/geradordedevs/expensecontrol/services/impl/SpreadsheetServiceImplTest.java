@@ -33,43 +33,43 @@ public class SpreadsheetServiceImplTest {
     @Mock
     private SpreadsheetRepository spreadsheetRepository;
 
-    private final String MOCK_JANUARY_MONTH = "Janeiro";
-    private final BigDecimal MOCK_JANUARY_PROHIBITED = new BigDecimal(1600);
-    private final BigDecimal MOCK_JANUARY_OUTPUT = new BigDecimal(800);
-    private final BigDecimal MOCK_JANUARY_TOTAL = new BigDecimal(800);
+    private final String MOCK_MONTH = "Janeiro";
+    private final BigDecimal MOCK_PROHIBITED = new BigDecimal(1600);
+    private final BigDecimal MOCK_OUTPUT = new BigDecimal(800);
+    private final BigDecimal MOCK_TOTAL = new BigDecimal(800);
 
     @Before
     public void setupMoc() {
         MockitoAnnotations.openMocks(this);
         when(spreadsheetRepository.findAll()).thenReturn(returnListAllSpreadsheetEntity());
-        when(spreadsheetRepository.save(returnObjectJanuarySpreadsheetEntity())).thenReturn(returnObjectJanuarySpreadsheetEntity());
+        when(spreadsheetRepository.save(returnObjectSpreadsheetEntity())).thenReturn(returnObjectSpreadsheetEntity());
     }
 
     @Test
-    public void findAllOfficeMustReturnOk() throws Exception {
+    public void findAllSpreadsheetMustReturnOk() throws Exception {
         assertEquals(returnListAllSpreadsheetEntity(), spreadsheetService.findAll());
     }
 
     @Test
-    public void findAllSpreadsheetMustReturnOk() throws Exception{
-        assertEquals(returnObjectJanuarySpreadsheetEntity(),spreadsheetService.saveExcelUploudToDataBase(returnObjectJanuarySpreadsheetEntity()));
+    public void saveExcelUploadToDataBaseMustReturnOk() throws Exception{
+        assertEquals(returnObjectSpreadsheetEntity(),spreadsheetService.saveExcelUploadToDataBase(returnObjectSpreadsheetEntity()));
     }
 
     @Test
-    public void isValidExcelFileMustReturnOkMustReturnOk() throws Exception{
+    public void isValidExcelFileMustReturnOk() throws Exception{
         assertTrue(spreadsheetService.isValidExcelFile(returnIsValidExcelFile()));
     }
 
     private List<SpreadsheetEntity> returnListAllSpreadsheetEntity() {
 
         List<SpreadsheetEntity> listEntity = new ArrayList<>();
-        listEntity.add(returnObjectJanuarySpreadsheetEntity());
+        listEntity.add(returnObjectSpreadsheetEntity());
 
         return listEntity;
     }
 
-    private SpreadsheetEntity returnObjectJanuarySpreadsheetEntity() {
-        return new SpreadsheetEntity(MOCK_JANUARY_MONTH, MOCK_JANUARY_PROHIBITED, MOCK_JANUARY_OUTPUT, MOCK_JANUARY_TOTAL);
+    private SpreadsheetEntity returnObjectSpreadsheetEntity() {
+        return new SpreadsheetEntity(MOCK_MONTH, MOCK_PROHIBITED, MOCK_OUTPUT, MOCK_TOTAL);
     }
 
     private MultipartFile returnIsValidExcelFile () throws IOException {
