@@ -59,7 +59,7 @@ public class SpreadsheetFacadeImpl implements SpreadsheetFacade {
         return mapper.toDtoList(spreadsheetService.findAll());
     }
 
-    public  void getCustomersDataFromExcel(InputStream inputStream){
+    public void getCustomersDataFromExcel(InputStream inputStream){
         log.info("reading the spreadsheet and passing it to the bank");
 
         try {
