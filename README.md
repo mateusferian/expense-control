@@ -24,6 +24,15 @@ git@gitlab.com:Mateusferian/expense-control.git
 https://gitlab.com/Mateusferian/expense-control.git
 ```
 
+### how to configure which email will receive a notification?
+1-open the "resources" package
+
+2-open "application.properties"
+
+3-find the "#Email" and see below following next step (step 4)
+
+4-locate "email.addTo" and change the current email to the email that will receive the notification
+
 ### code versioning best practices
 * Using Gitflow
 * Using semantic commit
@@ -47,20 +56,6 @@ Open your browser and go to the following link:
 ```
 http://localhost:8080/swagger-ui.html#/
 ```
--------------------------------------------------------------------------------------------------
-### TUTORIAL EMAIL
-#### how to configure which email will receive a notification?
-1-open the "services" package
-
-2-open package "impl"
-
-3-open the class "EmailJavaServiceImpl"
-
-4- locate the "try catch" that is inside the "sendEmail" method
-
-5- after locating the "try catch" change the email information passed in "email.addTo"
-to the email that will receive the notification
--------------------------------------------------------------------------------------------------
 
 ### technologies used
 
