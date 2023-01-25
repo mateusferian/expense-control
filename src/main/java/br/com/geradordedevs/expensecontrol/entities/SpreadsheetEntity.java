@@ -18,15 +18,15 @@ public class SpreadsheetEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private  Long id;
+    private Long id;
 
     private String month;
 
     private BigDecimal prohibited;
 
-    private  BigDecimal output;
+    private BigDecimal output;
 
-    private  BigDecimal total;
+    private BigDecimal total;
 
     public SpreadsheetEntity(String month, BigDecimal prohibited, BigDecimal output, BigDecimal total) {
         this.month = month;
