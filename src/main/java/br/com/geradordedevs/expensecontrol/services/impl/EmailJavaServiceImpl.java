@@ -52,7 +52,7 @@ public class EmailJavaServiceImpl implements EmailJavaService {
 
             email.setHtmlMsg("<head>\n" +
                     "    <meta charset=\"UTF-8\">\n" +
-                    "    <title>Document</title>\n" +
+                    "    <title>email</title>\n" +
                     "</head>\n" +
                     "<body style=\"padding: 0; margin: 0;\">\n" +
                     "    <table style=\"text-align: center ; background-color: #ECECEC; width: 55%; height: 587px;\">\n" +
