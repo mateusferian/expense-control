@@ -8,6 +8,7 @@ import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.HtmlEmail;
 import org.apache.commons.mail.SimpleEmail;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -16,22 +17,40 @@ import java.math.BigDecimal;
 @Service
 public class EmailJavaServiceImpl implements EmailJavaService {
 
+    @Value("${email.setHostName}")
+    private String hostName;
+
+    @Value("${email.setSmtpPort}")
+    private int smtpPort;
+
+    @Value("${email.userName}")
+    private String userName;
+
+    @Value("${email.setFrom}")
+    private String emailFrom;
+
+    @Value("${email.password}")
+    private String password;
+
+    @Value("${email.addTo}")
+    private String to;
+
     @Override
     public void sendEmail(double totalDouble, String month, BigDecimal prohibited , BigDecimal output) {
 
         HtmlEmail email = new HtmlEmail();
-        email.setHostName("smtp.googlemail.com");
-        email.setSmtpPort(587);
+        email.setHostName(hostName);
+        email.setSmtpPort(smtpPort);
         email.setDebug(true);
-        email.setAuthentication("carlosantoniocleiton@gmail.com", "vrvuggyswdjsmkls");
+        email.setAuthentication(userName, password);
         email.setSSLOnConnect(true);
 
         try {
             double total = totalDouble*-1;
-            email.setFrom("carlosantoniocleiton@gmail.com");
+            email.setFrom(emailFrom);
             email.setSubject("valor anual");
             email.setSubject("controle de negocios");
-            email.addTo("gooddesiger10@gmail.com");
+            email.addTo(to);
 
             email.setHtmlMsg("<head>\n" +
                     "    <meta charset=\"UTF-8\">\n" +
