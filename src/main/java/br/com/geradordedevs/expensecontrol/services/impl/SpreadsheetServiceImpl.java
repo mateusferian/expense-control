@@ -25,6 +25,7 @@ public class SpreadsheetServiceImpl implements SpreadsheetService {
 
     @Override
     public Iterable<SpreadsheetEntity> findAll() {
+        log.info("listing spreadsheet");
         return spreadsheetRepository.findAll();
     }
 
