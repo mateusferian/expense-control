@@ -44,11 +44,10 @@ public class SpreadsheetFacadeImplTest {
     private final BigDecimal MOCK_JANUARY_TOTAL = new BigDecimal(800);
 
     private final BigDecimal MOCK_JANUARY_TOTAL_NEGATIVE = new BigDecimal(-800);
-
     private final double RETURNS_TOTAL_NEGATIVE_CONVERTED = -800;
 
     @Before
-    public  void  setupMoc(){
+    public void setupMoc(){
         MockitoAnnotations.openMocks(this);
         when(spreadsheetService.findAll()).thenReturn(returnListAllSpreadsheetEntity());
 
@@ -81,7 +80,6 @@ public class SpreadsheetFacadeImplTest {
         return  dtoList;
     }
 
-
     private SpreadsheetEntity returnObjectJanuarySpreadsheetEntity(){
         return new SpreadsheetEntity(MOCK_JANUARY_ID,MOCK_JANUARY_MONTH,MOCK_JANUARY_PROHIBITED,MOCK_JANUARY_OUTPUT,MOCK_JANUARY_TOTAL);
     }
@@ -90,5 +88,4 @@ public class SpreadsheetFacadeImplTest {
     private SpreadsheetResponseDTO returnObjectJanuarySpreadsheetResponseDTO(){
         return new SpreadsheetResponseDTO(MOCK_JANUARY_MONTH,MOCK_JANUARY_PROHIBITED,MOCK_JANUARY_OUTPUT,MOCK_JANUARY_TOTAL);
     }
-
 }
