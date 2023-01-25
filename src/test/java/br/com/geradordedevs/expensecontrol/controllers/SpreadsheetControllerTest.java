@@ -31,7 +31,7 @@ public class SpreadsheetControllerTest {
 
     private final String ROULE_SPREADSHEET = "/api/v1/expenses-controls";
 
-    private final String ROULE_SPREADSHEETA_UPLOAD = "/api/v1/expenses-controls/upload-spreadsheet-data";
+    private final String ROULE_SPREADSHEET_UPLOAD = "/api/v1/expenses-controls/upload-spreadsheet-data";
 
     @Test
     public void findAllSpreadsheetReturnOk() throws Exception{
@@ -41,7 +41,10 @@ public class SpreadsheetControllerTest {
 
     @Test
     public void uploadCustomersDataReturnCreated() throws Exception {
-        MockMultipartFile mmf = new MockMultipartFile("file", "test.xlsx", "text/plain", "testesasa".getBytes());
-        mockMvc.perform(multipart(ROULE_SPREADSHEETA_UPLOAD).file(mmf)).andExpect(status().isCreated());
+        MockMultipartFile mmf = new MockMultipartFile(
+                "file", "test.xlsx", "text/plain",
+                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet".getBytes());
+
+        mockMvc.perform(multipart(ROULE_SPREADSHEET_UPLOAD).file(mmf)).andExpect(status().isCreated());
     }
 }
