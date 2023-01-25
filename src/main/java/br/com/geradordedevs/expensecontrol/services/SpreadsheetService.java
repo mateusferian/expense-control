@@ -8,5 +8,4 @@ public interface SpreadsheetService {
     SpreadsheetEntity saveExcelUploudToDataBase(SpreadsheetEntity entity);
     Iterable<SpreadsheetEntity> findAll();
     boolean isValidExcelFile(MultipartFile file);
-
 }
