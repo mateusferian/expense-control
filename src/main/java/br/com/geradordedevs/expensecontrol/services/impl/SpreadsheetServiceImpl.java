@@ -18,9 +18,9 @@ public class SpreadsheetServiceImpl implements SpreadsheetService {
     private SpreadsheetRepository spreadsheetRepository;
 
     @Override
-    public void saveExcelUploudToDataBase(SpreadsheetEntity entity) {
+    public SpreadsheetEntity saveExcelUploudToDataBase(SpreadsheetEntity entity) {
         log.info("registering a new file");
-        spreadsheetRepository.save(entity);
+         return spreadsheetRepository.save(entity);
     }
 
     @Override

@@ -5,7 +5,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public interface SpreadsheetService {
 
-    void saveExcelUploudToDataBase(SpreadsheetEntity entity);
+    SpreadsheetEntity saveExcelUploudToDataBase(SpreadsheetEntity entity);
     Iterable<SpreadsheetEntity> findAll();
     boolean isValidExcelFile(MultipartFile file);
 
