@@ -15,7 +15,7 @@ public class SpreadsheetResponseDTO {
 
     private BigDecimal prohibited;
 
-    private  BigDecimal output;
+    private BigDecimal output;
 
-    private  BigDecimal total;
+    private BigDecimal total;
 }
