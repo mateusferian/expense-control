@@ -37,14 +37,14 @@ public class SpreadsheetFacadeImplTest {
     @Mock
     private SpreadsheetMapper mapper;
 
-    private final Long MOCK_JANUARY_ID= 1L;
-    private final String MOCK_JANUARY_MONTH = "Janeiro";
-    private final BigDecimal MOCK_JANUARY_PROHIBITED = new BigDecimal(1600);
-    private final BigDecimal MOCK_JANUARY_OUTPUT = new BigDecimal(800);
-    private final BigDecimal MOCK_JANUARY_TOTAL = new BigDecimal(800);
+    private final Long MOCK_ID= 1L;
+    private final String MOCK_MONTH = "Janeiro";
+    private final BigDecimal MOCK_PROHIBITED = new BigDecimal(1600);
+    private final BigDecimal MOCK_OUTPUT = new BigDecimal(800);
+    private final BigDecimal MOCK_TOTAL = new BigDecimal(800);
 
-    private final BigDecimal MOCK_JANUARY_TOTAL_NEGATIVE = new BigDecimal(-800);
-    private final double RETURNS_TOTAL_NEGATIVE_CONVERTED = -800;
+    private final BigDecimal MOCK_TOTAL_NEGATIVE = new BigDecimal(-800);
+    private final double MOCK_TOTAL_CONVECTED_IN_DOUBLE_AND_NEGATIVE = -800;
 
     @Before
     public void setupMoc(){
@@ -56,36 +56,36 @@ public class SpreadsheetFacadeImplTest {
     }
 
     @Test
-    public void findAllOfficeMustReturnOk() throws Exception {
+    public void findAllSpreadsheetMustReturnOk() throws Exception {
         assertEquals(returnListAllSpreadsheetResponseDTO(), spreadsheetFacade.findAll());
     }
 
     @Test
     public void validNegativeTotalMustReturnOk() throws  Exception{
-        spreadsheetFacade.validNegativeTotal(MOCK_JANUARY_TOTAL_NEGATIVE,MOCK_JANUARY_MONTH, MOCK_JANUARY_PROHIBITED, MOCK_JANUARY_OUTPUT);
-        verify(emailJavaService,timeout(1)).sendEmail(RETURNS_TOTAL_NEGATIVE_CONVERTED,MOCK_JANUARY_MONTH, MOCK_JANUARY_PROHIBITED, MOCK_JANUARY_OUTPUT);
+        spreadsheetFacade.validNegativeTotal(MOCK_TOTAL_NEGATIVE,MOCK_MONTH, MOCK_PROHIBITED, MOCK_OUTPUT);
+        verify(emailJavaService,timeout(1)).sendEmail(MOCK_TOTAL_CONVECTED_IN_DOUBLE_AND_NEGATIVE,MOCK_MONTH, MOCK_PROHIBITED, MOCK_OUTPUT);
     }
 
     private List<SpreadsheetEntity> returnListAllSpreadsheetEntity(){
         List<SpreadsheetEntity> listEntity = new ArrayList<>();
-        listEntity.add(returnObjectJanuarySpreadsheetEntity());
+        listEntity.add(returnObjectSpreadsheetEntity());
 
         return  listEntity;
     }
 
     private List<SpreadsheetResponseDTO> returnListAllSpreadsheetResponseDTO(){
         List<SpreadsheetResponseDTO> dtoList = new ArrayList<>();
-        dtoList.add(returnObjectJanuarySpreadsheetResponseDTO());
+        dtoList.add(returnObjectSpreadsheetResponseDTO());
 
         return  dtoList;
     }
 
-    private SpreadsheetEntity returnObjectJanuarySpreadsheetEntity(){
-        return new SpreadsheetEntity(MOCK_JANUARY_ID,MOCK_JANUARY_MONTH,MOCK_JANUARY_PROHIBITED,MOCK_JANUARY_OUTPUT,MOCK_JANUARY_TOTAL);
+    private SpreadsheetEntity returnObjectSpreadsheetEntity(){
+        return new SpreadsheetEntity(MOCK_ID,MOCK_MONTH,MOCK_PROHIBITED,MOCK_OUTPUT,MOCK_TOTAL);
     }
 
     //dtos
-    private SpreadsheetResponseDTO returnObjectJanuarySpreadsheetResponseDTO(){
-        return new SpreadsheetResponseDTO(MOCK_JANUARY_MONTH,MOCK_JANUARY_PROHIBITED,MOCK_JANUARY_OUTPUT,MOCK_JANUARY_TOTAL);
+    private SpreadsheetResponseDTO returnObjectSpreadsheetResponseDTO(){
+        return new SpreadsheetResponseDTO(MOCK_MONTH,MOCK_PROHIBITED,MOCK_OUTPUT,MOCK_TOTAL);
     }
 }
