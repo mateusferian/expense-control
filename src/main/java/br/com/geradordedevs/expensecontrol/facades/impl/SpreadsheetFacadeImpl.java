@@ -49,7 +49,7 @@ public class SpreadsheetFacadeImpl implements SpreadsheetFacade {
             getCustomersDataFromExcel(file.getInputStream());
             excelUploudResponseDTO.setSuccess(true);
         } else {
-            log.warn("invalid worksheet, no value was passed");
+            log.warn("invalid worksheet");
         }
         return excelUploudResponseDTO;
     }
