@@ -49,15 +49,15 @@ public class SpreadsheetFacadeImplTest {
     @Before
     public void setupMoc(){
         MockitoAnnotations.openMocks(this);
-        when(spreadsheetService.findAll()).thenReturn(returnListAllSpreadsheetEntity());
+        when(spreadsheetService.findAll()).thenReturn(returnListSpreadsheetEntity());
 
 
-        when(mapper.toDtoList(returnListAllSpreadsheetEntity())).thenReturn(returnListAllSpreadsheetResponseDTO());
+        when(mapper.toDtoList(returnListSpreadsheetEntity())).thenReturn(returnListSpreadsheetResponseDTO());
     }
 
     @Test
     public void findAllSpreadsheetMustReturnOk() throws Exception {
-        assertEquals(returnListAllSpreadsheetResponseDTO(), spreadsheetFacade.findAll());
+        assertEquals(returnListSpreadsheetResponseDTO(), spreadsheetFacade.findAll());
     }
 
     @Test
@@ -66,14 +66,14 @@ public class SpreadsheetFacadeImplTest {
         verify(emailJavaService,timeout(1)).sendEmail(MOCK_TOTAL_CONVECTED_IN_DOUBLE_AND_NEGATIVE,MOCK_MONTH, MOCK_PROHIBITED, MOCK_OUTPUT);
     }
 
-    private List<SpreadsheetEntity> returnListAllSpreadsheetEntity(){
+    private List<SpreadsheetEntity> returnListSpreadsheetEntity(){
         List<SpreadsheetEntity> listEntity = new ArrayList<>();
         listEntity.add(returnObjectSpreadsheetEntity());
 
         return  listEntity;
     }
 
-    private List<SpreadsheetResponseDTO> returnListAllSpreadsheetResponseDTO(){
+    private List<SpreadsheetResponseDTO> returnListSpreadsheetResponseDTO(){
         List<SpreadsheetResponseDTO> dtoList = new ArrayList<>();
         dtoList.add(returnObjectSpreadsheetResponseDTO());
 

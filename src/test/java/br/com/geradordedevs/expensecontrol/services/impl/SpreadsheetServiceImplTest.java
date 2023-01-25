@@ -41,13 +41,13 @@ public class SpreadsheetServiceImplTest {
     @Before
     public void setupMoc() {
         MockitoAnnotations.openMocks(this);
-        when(spreadsheetRepository.findAll()).thenReturn(returnListAllSpreadsheetEntity());
+        when(spreadsheetRepository.findAll()).thenReturn(returnListSpreadsheetEntity());
         when(spreadsheetRepository.save(returnObjectSpreadsheetEntity())).thenReturn(returnObjectSpreadsheetEntity());
     }
 
     @Test
     public void findAllSpreadsheetMustReturnOk() throws Exception {
-        assertEquals(returnListAllSpreadsheetEntity(), spreadsheetService.findAll());
+        assertEquals(returnListSpreadsheetEntity(), spreadsheetService.findAll());
     }
 
     @Test
@@ -60,7 +60,7 @@ public class SpreadsheetServiceImplTest {
         assertTrue(spreadsheetService.isValidExcelFile(returnIsValidExcelFile()));
     }
 
-    private List<SpreadsheetEntity> returnListAllSpreadsheetEntity() {
+    private List<SpreadsheetEntity> returnListSpreadsheetEntity() {
 
         List<SpreadsheetEntity> listEntity = new ArrayList<>();
         listEntity.add(returnObjectSpreadsheetEntity());
