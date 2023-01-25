@@ -41,7 +41,7 @@ public class SpreadsheetFacadeImpl implements SpreadsheetFacade {
     private EmailJavaService emailJavaService;
 
     @Override
-    public UploadExcelResponseDTO saveExcelUploudToDataBase(MultipartFile file) throws IOException {
+    public UploadExcelResponseDTO saveExcelUploadToDataBase(MultipartFile file) throws IOException {
         UploadExcelResponseDTO excelUploudResponseDTO = new UploadExcelResponseDTO();
 
         if (spreadsheetService.isValidExcelFile(file)) {

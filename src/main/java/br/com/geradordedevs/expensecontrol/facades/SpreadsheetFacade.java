@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface SpreadsheetFacade {
 
-    UploadExcelResponseDTO saveExcelUploudToDataBase(MultipartFile file) throws IOException;
+    UploadExcelResponseDTO saveExcelUploadToDataBase(MultipartFile file) throws IOException;
     List<SpreadsheetResponseDTO> findAll();
 }
