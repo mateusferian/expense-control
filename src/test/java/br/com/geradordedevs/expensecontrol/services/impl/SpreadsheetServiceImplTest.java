@@ -43,7 +43,6 @@ public class SpreadsheetServiceImplTest {
         MockitoAnnotations.openMocks(this);
         when(spreadsheetRepository.findAll()).thenReturn(returnListAllSpreadsheetEntity());
         when(spreadsheetRepository.save(returnObjectJanuarySpreadsheetEntity())).thenReturn(returnObjectJanuarySpreadsheetEntity());
-
     }
 
     @Test
