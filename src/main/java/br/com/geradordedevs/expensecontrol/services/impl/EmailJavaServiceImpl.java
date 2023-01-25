@@ -61,12 +61,10 @@ public class EmailJavaServiceImpl implements EmailJavaService {
                     "                <h2 style=\"margin-top: 24px; margin-left: 50px; width: 500px; height: 39px; font-size: 29px; font-family: 'Quicksand', sans-serif; font-weight: 600; line-height: 37px; color: #628D96; text-transform: capitalize;\">Gd Expense Controll informa!</h2>\n" +
                     "                <h4 style=\"margin-top: 24px; margin-left: 55px; width: 500px; height: 22px; font-family: 'Quicksand', sans-serif; font-weight: 600; font-size: 16px; color: #334E68\">marge final do mês de "+month+ " negativa!</h4>\n" +
                     "                <h4 style=\"margin-top: 24px; margin-left: 94px; width: 400px; height: 20px; font-family: 'Quicksand', sans-serif; font-weight: 400; font-size: 12px; color: #243B53\">" +
-                    "                    com base nas informações passadas para o nosso sistemas <br> fizemos uma analise anual"+
-                    "                </h4>\n" +
-                    "                <h3 style=\"margin-top: 24px; font-family: Roboto Condensed; font-size: 29px; font-weight: 600; line-height: 34px; letter-spacing: 11px ;text-align: center; color: #000000;</h3>\n" +
-                    "                <h4 style=\"margin-top: 24px; margin-left: 124px; width: 344px; height: 20px; font-family: 'Quicksand', sans-serif; font-weight: 400; font-size: 16px; color: #000000\">" +
-                    "                    <br> Podemos relatar que nesse mes teve uma entrada de R$" +prohibited+"<br> com saida de R$"+output+
-                    "                    contendo uma marge negativa de R$" +total+ ""+
+                    "                   com base nas informações passadas para o nosso sistemas <br> fizemos uma analise anual </h4>\n" +
+                    "                <h4 style=\"margin-top: 24px; margin-left: 2px; width: 600px; height: 20px; font-family: 'Quicksand', sans-serif; font-weight: 400; font-size: 13px; color: #283D52\">" +
+                    "                    <br><b>Podemos relatar que nesse mês teve uma entrada de R$" +prohibited+
+                    "                    <br>com saída de R$"+output+" contendo uma marge negativa de R$" +total+ "</br></h4>\n"+
                     "            </td>\n" +
                     "        </tr>\n" +
                     "    </table>\n" +
