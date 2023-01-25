@@ -90,7 +90,7 @@ public class SpreadsheetFacadeImpl implements SpreadsheetFacade {
                     cellIndex++;
                 }
                 validNegativeTotal(spreadsheetEntity.getTotal(),spreadsheetEntity.getMonth(),spreadsheetEntity.getProhibited(),spreadsheetEntity.getOutput());
-                spreadsheetService.saveExcelUploudToDataBase(spreadsheetEntity);
+                spreadsheetService.saveExcelUploadToDataBase(spreadsheetEntity);
             }
 
         } catch (IOException e ) {
