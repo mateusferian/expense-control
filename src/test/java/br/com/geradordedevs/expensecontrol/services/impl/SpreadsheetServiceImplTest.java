@@ -1,11 +1,7 @@
 package br.com.geradordedevs.expensecontrol.services.impl;
 
-import br.com.geradordedevs.expensecontrol.dtos.responses.SpreadsheetResponseDTO;
 import br.com.geradordedevs.expensecontrol.entities.SpreadsheetEntity;
-import br.com.geradordedevs.expensecontrol.facades.impl.SpreadsheetFacadeImpl;
-import br.com.geradordedevs.expensecontrol.mappers.SpreadsheetMapper;
 import br.com.geradordedevs.expensecontrol.repositories.SpreadsheetRepository;
-import br.com.geradordedevs.expensecontrol.services.SpreadsheetService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,7 +14,6 @@ import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
