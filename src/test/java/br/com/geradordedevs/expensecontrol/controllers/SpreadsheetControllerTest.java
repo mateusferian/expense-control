@@ -34,7 +34,7 @@ public class SpreadsheetControllerTest {
     private final String ROULE_SPREADSHEETA_UPLOAD = "/api/v1/expenses-controls/upload-spreadsheet-data";
 
     @Test
-    public  void findAllSpreadsheetReturnOk() throws Exception{
+    public void findAllSpreadsheetReturnOk() throws Exception{
         mockMvc.perform(get(ROULE_SPREADSHEET))
                 .andExpect(status().isOk());
     }
