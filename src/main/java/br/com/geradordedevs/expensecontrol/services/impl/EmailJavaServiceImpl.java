@@ -59,7 +59,7 @@ public class EmailJavaServiceImpl implements EmailJavaService {
                     "    <table style=\"text-align: center ; background-color: #ECECEC; width: 55%; height: 587px;\">\n" +
                     "        <tr>\n" +
                     "            <td style=\"margin-top: 70px; display: inline-block; width: 600px; height: 341px; border-radius: 12px; background-color: #F5F5F5;\">\n" +
-                    "                <h2 style=\"margin-top: 24px; margin-left: 50px; width: 500px; height: 39px; font-size: 29px; font-family: 'Quicksand', sans-serif; font-weight: 600; line-height: 37px; color: #628D96; text-transform: capitalize;\">Gd Expense Controll informa!</h2>\n" +
+                    "                <h2 style=\"margin-top: 24px; margin-left: 50px; width: 500px; height: 39px; font-size: 29px; font-family: 'Quicksand', sans-serif; font-weight: 600; line-height: 37px; color: #628D96; text-transform: capitalize;\">Gd Expense Control informa!</h2>\n" +
                     "                <h4 style=\"margin-top: 24px; margin-left: 55px; width: 500px; height: 22px; font-family: 'Quicksand', sans-serif; font-weight: 600; font-size: 16px; color: #334E68\">marge final do mês de "+month+ " negativa!</h4>\n" +
                     "                <h4 style=\"margin-top: 24px; margin-left: 94px; width: 400px; height: 20px; font-family: 'Quicksand', sans-serif; font-weight: 400; font-size: 12px; color: #243B53\">" +
                     "                   com base nas informações passadas para o nosso sistemas <br> fizemos uma analise anual </h4>\n" +
