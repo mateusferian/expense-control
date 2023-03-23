@@ -38,6 +38,14 @@ public class SpreadsheetServiceImplTest {
     private final BigDecimal MOCK_OUTPUT = new BigDecimal(800);
     private final BigDecimal MOCK_TOTAL = new BigDecimal(800);
 
+    private final String MOCK_FILE = "file";
+
+    private final String MOCK_ORIGINAL_FILE_NAME= "desafio2.xlsx";
+
+    private final String MOCK_NAME = "src/test/java/resources/desafio2.xlsx";
+
+    private final String MOCK_SHEET = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+
     @Before
     public void setupMoc() {
         MockitoAnnotations.openMocks(this);
@@ -73,12 +81,12 @@ public class SpreadsheetServiceImplTest {
     }
 
     private MultipartFile returnIsValidExcelFile () throws IOException {
-        FileInputStream file = new FileInputStream("src/test/java/resources/desafio2.xlsx");
+        FileInputStream file = new FileInputStream(MOCK_NAME);
 
         return new MockMultipartFile(
-                "file",
-                "desafio2.xlsx",
-                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                MOCK_FILE,
+                MOCK_ORIGINAL_FILE_NAME,
+                MOCK_SHEET,
                 file);
     }
 }
