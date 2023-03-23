@@ -29,22 +29,30 @@ public class SpreadsheetControllerTest {
     @MockBean
     private SpreadsheetFacade spreadsheetFacade;
 
-    private final String ROULE_SPREADSHEET = "/api/v1/expenses-controls";
+    private final String SPREADSHEET_ROUTE = "/api/v1/expenses-controls";
 
-    private final String ROULE_SPREADSHEET_UPLOAD = "/api/v1/expenses-controls/upload-spreadsheet-data";
+    private final String SPREADSHEET_UPLOAD_ROUTE = "/api/v1/expenses-controls/upload-spreadsheet-data";
+
+    private final String MOCK_FILE = "file";
+
+    private final String MOCK_ORIGINAL_FILE_NAME= "test.xlsx";
+
+    private final String MOCK_CONTENT_TYPE = "text/plain";
+
+    private final String MOCK_SHEET = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
 
     @Test
     public void findAllSpreadsheetReturnOk() throws Exception{
-        mockMvc.perform(get(ROULE_SPREADSHEET))
+        mockMvc.perform(get(SPREADSHEET_ROUTE))
                 .andExpect(status().isOk());
     }
 
     @Test
     public void uploadCustomersDataReturnCreated() throws Exception {
         MockMultipartFile mmf = new MockMultipartFile(
-                "file", "test.xlsx", "text/plain",
-                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet".getBytes());
+                MOCK_FILE,MOCK_ORIGINAL_FILE_NAME,MOCK_CONTENT_TYPE,
+                MOCK_SHEET.getBytes());
 
-        mockMvc.perform(multipart(ROULE_SPREADSHEET_UPLOAD).file(mmf)).andExpect(status().isCreated());
+        mockMvc.perform(multipart(SPREADSHEET_UPLOAD_ROUTE).file(mmf)).andExpect(status().isCreated());
     }
 }
