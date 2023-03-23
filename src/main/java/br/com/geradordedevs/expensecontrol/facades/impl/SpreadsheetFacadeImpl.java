@@ -42,16 +42,16 @@ public class SpreadsheetFacadeImpl implements SpreadsheetFacade {
 
     @Override
     public UploadExcelResponseDTO saveExcelUploadToDataBase(MultipartFile file) throws IOException {
-        UploadExcelResponseDTO excelUploudResponseDTO = new UploadExcelResponseDTO();
+        UploadExcelResponseDTO excelUploadResponseDTO = new UploadExcelResponseDTO();
 
         if (spreadsheetService.isValidExcelFile(file)) {
             log.warn("valid worksheet");
             getCustomersDataFromExcel(file.getInputStream());
-            excelUploudResponseDTO.setSuccess(true);
+            excelUploadResponseDTO.setSuccess(true);
         } else {
             log.warn("invalid worksheet");
         }
-        return excelUploudResponseDTO;
+        return excelUploadResponseDTO;
     }
 
     @Override
@@ -84,8 +84,6 @@ public class SpreadsheetFacadeImpl implements SpreadsheetFacade {
                         case  1 -> spreadsheetEntity.setProhibited(BigDecimal.valueOf(cell.getNumericCellValue()));
                         case  2 -> spreadsheetEntity.setOutput(BigDecimal.valueOf(cell.getNumericCellValue()));
                         case  3 -> spreadsheetEntity.setTotal(BigDecimal.valueOf(cell.getNumericCellValue()));
-                        default -> {
-                        }
                     }
                     cellIndex++;
                 }
